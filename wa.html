@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp Message Launcher</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        input {
+            padding: 10px;
+            font-size: 16px;
+            width: 80%;
+            max-width: 300px;
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #25D366;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #1da851;
+        }
+    </style>
+</head>
+<body>
+    <h1>WhatsApp Message Launcher</h1>
+    <p>Enter the phone number with country code (e.g., 60123456789 for Malaysia):</p>
+    <input type="tel" id="phoneNumber" placeholder="Phone number" required>
+    <br>
+    <button onclick="launchWhatsApp()">Send Message</button>
+
+    <script>
+        function launchWhatsApp() {
+            const phoneInput = document.getElementById('phoneNumber');
+            const phoneNumber = phoneInput.value.trim();
+
+            if (phoneNumber) {
+                const whatsappUrl = `https://wa.me/${phoneNumber}`;
+                window.open(whatsappUrl, '_blank');
+            } else {
+                alert('Please enter a valid phone number.');
+            }
+        }
+    </script>
+</body>
+</html>
